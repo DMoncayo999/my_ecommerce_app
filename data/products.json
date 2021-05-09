@@ -1,0 +1,20 @@
+[
+    {"id":"1111",
+    "title":"Chocolate cake",
+    "imageUrl":"img/chocolate_cake.jpeg",
+    "description":"Delicious chocolate cake with cherries and chantilly cream",
+    "price":"19"},
+    
+    {"id":"2222",
+    "title":"Macaron",
+    "imageUrl":"img/macarones.jpeg",
+    "description":"Box of macarones of various flavors",
+    "price":"25"},
+    
+    {"id":"3333",
+    "title":"Donuts",
+    "imageUrl":"img/donuts.jpeg",
+    "description":"A dozen of the most delicious and colorful donuts.",
+    "price":"12"}
+    
+]
