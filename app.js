@@ -1,7 +1,7 @@
 const path = require('path');
-
 const express = require('express');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 
 const errorController = require('./controllers/error');
 
@@ -21,4 +21,4 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000);
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
