@@ -1,0 +1,3 @@
+url:
+
+"mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
