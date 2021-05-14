@@ -58,7 +58,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-     `${MONGODB_URL}`, { useNewUrlParser: true }
+     MONGODB_URL, { useNewUrlParser: true }
   )
   .then(result => {
     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
