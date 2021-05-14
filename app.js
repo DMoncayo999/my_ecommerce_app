@@ -5,10 +5,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
-const cors = require('cors') 
-const errorController = require('./controllers/error');
-const mongoConnect = require('./util/database').mongoConnect;
+const MONGODBURL = process.env.MONGODBURL;
+const cors = require('cors'); 
 
+const errorController = require('./controllers/error');
+const User = require('./models/user');
 
 const app = express();
 
@@ -29,7 +30,6 @@ const options = {
     useFindAndModify: false,
     family: 4
 };
-const MONGODBURL = process.env.MONGODBURL || "mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/shop?retryWrites=true&w=majority";
 
 
 const adminRoutes = require('./routes/admin');
@@ -38,15 +38,25 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+app.use((req, res, next) => {
+  User.findById('5bab316ce0a7c75f783cb8a8')//hard code id
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+});
+*/
+
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-
 mongoose
   .connect(
-    "mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/shop?retryWrites=true&w=majority"
+     MONGODBURL, options
   )
   .then(result => {
     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
@@ -54,4 +64,3 @@ mongoose
   .catch(err => {
     console.log(err);
   });
-
