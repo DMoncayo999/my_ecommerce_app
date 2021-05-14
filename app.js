@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 console.log("PORT", PORT);
-const MONGODBURL = process.env.MONGODBURL;
-console.log("MONGODBURL", MONGODBURL);
+const MONGODB_URL = process.env.MONGODB_URL;
+console.log("MONGODB_URL", MONGODB_URL);
 const cors = require('cors');
 
 const errorController = require('./controllers/error');
@@ -58,7 +58,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-     'mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/shop?retryWrites=true&w=majority', { useNewUrlParser: true }
+     `${MONGODB_URL}`, { useNewUrlParser: true }
   )
   .then(result => {
     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
