@@ -58,7 +58,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-     `${MONGODBURL}`, { useNewUrlParser: true }
+     'mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/shop?retryWrites=true&w=majority', { useNewUrlParser: true }
   )
   .then(result => {
     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
