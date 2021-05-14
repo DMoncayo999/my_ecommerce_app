@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
+console.log("PORT", PORT);
 const MONGODBURL = process.env.MONGODBURL;
-const cors = require('cors'); 
+console.log("MONGODBURL", MONGODBURL);
+const cors = require('cors');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
@@ -56,7 +58,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-     `${MONGODBURL}`, options
+     `${MONGODBURL}`
   )
   .then(result => {
     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
