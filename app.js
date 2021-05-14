@@ -11,7 +11,7 @@ console.log("MONGODB_URL", MONGODB_URL);
 const cors = require('cors');
 
 const errorController = require('./controllers/error');
-const User = require('./models/user');
+// const User = require('./models/user');
 
 const app = express();
 
