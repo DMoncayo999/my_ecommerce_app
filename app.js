@@ -33,7 +33,6 @@ const options = {
     family: 4
 };
 
-
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
@@ -61,6 +60,18 @@ mongoose
      'mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/shop?retryWrites=true&w=majority', { useNewUrlParser: true }
   )
   .then(result => {
+      User.findOne().then (user => {
+          if (!user) {
+            const user = new User({
+                name: 'Delfi',
+                email: 'dmgtest.com',
+                cart: {
+                   items: []
+                }
+          });
+          user.save();
+          }
+      });
     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
   })
   .catch(err => {
