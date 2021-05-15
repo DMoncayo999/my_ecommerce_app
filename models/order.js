@@ -8,8 +8,7 @@ const orderSchema = new Schema({
       product: { type: Object, required: true },
       quantity: { type: Number, required: true }
     }
-  ]
-/*,
+  ],
   user: {
     name: {
       type: String,
@@ -21,7 +20,7 @@ const orderSchema = new Schema({
       ref: 'User'
     }
   }
-*/
+
 
 });
 
