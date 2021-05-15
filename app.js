@@ -39,16 +39,16 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*
+
 app.use((req, res, next) => {
-  User.findById('5bab316ce0a7c75f783cb8a8')//hard code id
+  User.findById('')//code id
     .then(user => {
       req.user = user;
       next();
     })
     .catch(err => console.log(err));
 });
-*/
+
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
@@ -60,11 +60,11 @@ mongoose
      'mongodb+srv://user:Di22mbcYcSz9cGNE@cluster0.9cael.mongodb.net/shop?retryWrites=true&w=majority', { useNewUrlParser: true }
   )
   .then(result => {
-      User.findOne().then (user => {
+      User.findOne().then ( user => {
           if (!user) {
             const user = new User({
                 name: 'Delfi',
-                email: 'dmgtest.com',
+                email: 'dmg@test.com',
                 cart: {
                    items: []
                 }
