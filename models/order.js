@@ -10,7 +10,7 @@ const orderSchema = new Schema({
     }
   ],
   user: {
-    name: {
+    email: {
       type: String,
       required: true
     },
@@ -20,8 +20,6 @@ const orderSchema = new Schema({
       ref: 'User'
     }
   }
-
-
 });
 
 module.exports = mongoose.model('Order', orderSchema);
