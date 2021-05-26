@@ -86,7 +86,7 @@ form {
   position: fixed;
   left: 0;
   top: 0;
-  background: white;
+  background: lavenderblush;
   z-index: 10;
   padding: 2rem 1rem 1rem 2rem;
   transform: translateX(-100%);
@@ -127,9 +127,9 @@ form {
 .mobile-nav__item a.active,
 .mobile-nav__item button:hover,
 .mobile-nav__item button:active {
-  background: #00695c;
+  background: lightgreen;  
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 #side-menu-toggle {
@@ -172,11 +172,15 @@ form {
 
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 20px;
 }
+.card__header{ border-radius: 20px 20px 0 0;}
+
 
 .card__header,
 .card__content {
   padding: 1rem;
+  background-color: lightgreen;
 }
 
 .card__header h1,
@@ -218,7 +222,7 @@ form {
 
 .btn:hover,
 .btn:active {
-  background-color: lightgreen;
+  background-color: lawngreen;
   color: white;
 }
 
