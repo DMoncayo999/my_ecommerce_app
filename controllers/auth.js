@@ -7,14 +7,14 @@ const { validationResult } = require('express-validator/check');
 
 const User = require('../models/user');
 
-const transporter = nodemailer.createTransport(
+/*const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
       api_key:
-       //api_key from sendgrid here ' '
+       api_key from sendgrid here ' '
     }
   })
-);
+);*/
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -155,8 +155,8 @@ exports.postSignup = (req, res, next) => {
       res.redirect('/login');
        return transporter.sendMail({
          to: email,
-         from:// 'shop@node-complete.com',
-         subject: 'Signup succeeded!',
+       //  from: 'shop@node-complete.com',
+       //  subject: 'Signup succeeded!',
          html: '<h1>You successfully signed up!</h1>'
        });
     })
@@ -209,8 +209,8 @@ exports.postReset = (req, res, next) => {
         res.redirect('/');
         transporter.sendMail({
           to: req.body.email,
-          from:// 'shop@node-complete.com',
-          subject: 'Password reset',
+         // from:'shop@node-complete.com',
+        //  subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
             <p>Click this <a href="http://localhost:5000/reset/${token}">link</a> to set a new password.</p>
